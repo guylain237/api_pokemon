@@ -26,6 +26,23 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "react/react-in-jsx-scope": 0,
+    "no-console": "off",
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(error|warn|info)$/]",
+        "message": "You can only call the error(), warn() and info() methods from the console object"
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/no-unescaped-entities": "off",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "assert": "either"
+      }
+    ],
     "@typescript-eslint/quotes": ["error", "double"],
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
   },
